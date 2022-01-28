@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% load static %}
+  <meta charset="utf-8" />
+  <title>Items</title>
+</head>
+<body>
+  <div>
+    {% if item_list %}
+    <ul>
+      {% for item in item_list %}
+      <li>
+        <div>
+          <i>Id:</i>        <span class='item-info'>{{ item.id }}</span><br>
+          <i>Container:</i> <span class='item-info'>{{ item.container }}</span><br>
+          <i>Created at:</i><span class='item-info'>{{ item.creation_date }}</span>
+        </div>
+        <div><button class='item-edit-btn' item-id='{{ item.id }}'></button></div>
+      </li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+  </div>
+  <script src="{% static 'js/item.js' %}" type="text/javascript"></script>
+</body>
+</html>

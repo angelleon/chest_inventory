@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!--script src="magnet.min.js"></script-->
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}"/>
+    <meta charset="utf-8" />
+  </head>
+  <body>
+    <div id="lines">
+      <span id="v-magnet" />
+      <span id="h-magnet" />
+    </div>
+    <div>
+      <div id="sidebar">
+        <div>
+          <select id="paper-selector">
+            <optgroup label="US">
+              <option value="letter">Letter 8.5'x11'</option>
+              <option value="legal">Legal</option>
+            </optgroup>
+          </select>
+          <button id="add-qr-btn">+</button>
+          <button id="print-btn">Print</button>
+        </div>
+        <div>
+          {% if code_list %}
+          <ul>
+            {% for code in code_list %}
+            <li>
+              <div>
+                <div class='qr-controls'>
+                  <img src="{% static '/codes/' %}{{ code.content }}.png">
+                  <i>{{ code.item.description }}</i>
+                </div>
+                <div class='qr-controls'>
+                  <button class='delete-qr qr-buttons' uuid="{{ code.content }}" src="{% static '/codes/' %}{{ code.content }}.png">X</button>
+                  <button class='add-single-qr qr-buttons' uuid="{{ code.content }}" src="{% static '/codes/' %}{{ code.content }}.png">S</button>
+                  <button class='add-double-qr qr-buttons' uuid="{{ code.content }}" src="{% static '/codes/' %}{{ code.content }}.png">D</button>
+                </div>
+              </div>
+            </li>
+            {% endfor %}
+          </ul>
+          {% endif %}
+      </div>
+      <div id="canvas"></div>
+    </div>
+  </body>
+  
+  <script src="{% static 'js/magnet.min.js' %}" type="text/javascript"></script>
+  <script src="{% static 'js/script.js' %}" type="text/javascript"></script>
+</html>

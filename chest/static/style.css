@@ -1,0 +1,47 @@
+div {
+    border: 1px dashed cyan;
+}
+
+#canvas {
+    width: 600px;
+    height: 600px;
+    background: #ddd;
+};
+
+.qrcontainer {
+    display: block;
+    background: green;
+}
+
+.delete-qr {
+    background-color: #c00;
+    color: #ddd;
+    font-family: 'Courier New', Courier, monospace;
+    margin: 1px solid black;
+    border: none;
+    border-radius: 2px;
+}
+
+.delete-qr:hover {
+    background-color: #b00;
+}
+
+.delete-qr:visited {
+    background-color: #200;
+}
+
+.qr-controls {
+    display: inline-block;
+}
+
+.qr-buttons {
+    display: block;
+}
+
+#sidebar {
+    display: inline-block;
+}
+
+#canvas {
+    display: inline-block;
+}

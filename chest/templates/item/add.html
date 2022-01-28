@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Add Item</title>
+    </head>
+    <body>
+        <form method="post" action='save'>
+            <input type="text" name='description[]' placeholder='a'>
+            <select name='container[]'>
+                {% if containers %}
+                {% for container in containers %}
+                <option value="{{ container.name }}"></option>
+                {% endfor %}
+                {% endif %}
+            </select>
+        </form>
+        <button type='submit'>Save</button>
+        <script type="text/javascript" src="{% static 'add-item.js' %}"></script>
+    </body>
+</html>
